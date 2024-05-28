@@ -1,2 +1,3 @@
 # budget_tracker
- Budget tracker in MERN (MongoDb, Express, React, Nodejs
+
+Budget tracker in MERN (MongoDb, Express, React, Nodejs)
