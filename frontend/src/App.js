@@ -1,12 +1,15 @@
 import styled from "styled-components";
 import bg from './images/bg.png';
+import { MainLayout } from './styles/Layouts';
+import Orb from './components/orb/orb'
 
 function App() {
   return (
     <AppStyled bg={bg} className="App">
-      <main>
-
-      </main>
+      <Orb/>
+      <MainLayout>
+  
+      </MainLayout>
     </AppStyled>
   );
 }
