@@ -37,10 +37,10 @@ exports.getIncomes = async(req, res) => {
     }
 }
 
-exports.deleteIncomes = async(req, res) => {
+exports.deleteIncome = async(req, res) => {
    const {id}  = req.params;
-
-   IncomeSchema.findByIdAndDelete(id)
+    console.log(params);
+    IncomeSchema.findByIdAndDelete(id)
    .then((income) => {
         res.status(200).json({message: 'Income Deleted'});
    })
