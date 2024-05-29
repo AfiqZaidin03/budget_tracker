@@ -1,15 +1,20 @@
-import React, {useState, useMemo} from 'react';
+import React, { useMemo } from 'react';
 import styled from "styled-components";
+import Dashboard from './components/Dashboard/Dashboard';
+import Expenses from './components/Expenses/Expenses';
+import Incomes from './components/Incomes/Incomes';
+import Navigation from './components/Navigation/Navigation';
+import Orb from './components/Orb/Orb';
+import { useGlobalContext } from './context/globalContext';
 import bg from './images/bg.png';
 import { MainLayout } from './styles/Layouts';
-import Orb from './components/Orb/Orb'
-import Navigation from './components/Navigation/Navigation'
-import Dashboard from './components/Dashboard/Dashboard'
-import Incomes from './components/Incomes/Incomes'
-import Expenses from './components/Expenses/Expenses'
 
 function App() {
   const [active, setActive] = React.useState(1)
+
+  const global = useGlobalContext()
+  console.log(global);
+
   const displayData = () => {
     switch(active){
       case 1:
@@ -34,7 +39,7 @@ function App() {
       <MainLayout>
         <Navigation active={active} setActive={setActive} />
         <main>
-
+          {displayData()}
         </main>
       </MainLayout>
     </AppStyled>
