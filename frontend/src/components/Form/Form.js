@@ -7,7 +7,7 @@ import { plus } from '../../utils/icons';
 import Button from '../Button/Button';
 
 function Form() {
-  const {addIncome} = useGlobalContext()
+  const {addIncome, getIncomes} = useGlobalContext()
   const [inputState, setInputState] = useState({
     title: '',
     amount: '',
@@ -25,6 +25,13 @@ function Form() {
   const handleSubmit = e => {
     e.preventDefault()
     addIncome(inputState)
+    setInputState({
+      title: '',
+      amount: '',
+      date: '',
+      category: '',
+      description: '',
+    })
   }
 
   return (
@@ -50,7 +57,7 @@ function Form() {
         <div className='input-control'>
           <DatePicker 
             id='date'
-            placeholderText='Enter A Date'
+            placeholderText='Enter a Date'
             selected={date}
             dateFormat="dd/MM/YYYY"
             onChange={(date) => {
@@ -75,7 +82,7 @@ function Form() {
                 <textarea 
                   name="description" 
                   value={description} 
-                  placeholder='Add A Reference' 
+                  placeholder='Add a Reference' 
                   id="description" 
                   cols="30" 
                   rows="4" 
@@ -117,6 +124,7 @@ const FormStyled = styled.form`
         color: rgba(34, 34, 96, 0.4);
     }
   }
+
   .input-control{
     input{
         width: 100%;
