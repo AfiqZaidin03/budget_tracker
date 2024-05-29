@@ -7,7 +7,7 @@ import { plus } from '../../utils/icons';
 import Button from '../Button/Button';
 
 function ExpenseForm() {
-  const {addIncome, getIncomes} = useGlobalContext()
+  const {addExpense, getExpenses} = useGlobalContext()
   const [inputState, setInputState] = useState({
     title: '',
     amount: '',
@@ -24,7 +24,7 @@ function ExpenseForm() {
 
   const handleSubmit = e => {
     e.preventDefault()
-    addIncome(inputState)
+    addExpense(inputState)
     setInputState({
       title: '',
       amount: '',
@@ -41,7 +41,7 @@ function ExpenseForm() {
               type='text'
               value={title}
               name={'title'}
-              placeholder='Salary Title'
+              placeholder='Expense title'
               onChange={handleInput('title')}
             />
         </div>
@@ -50,14 +50,14 @@ function ExpenseForm() {
               type='text'
               value={amount}
               name={'amount'}
-              placeholder='Salary Amount'
+              placeholder='Expense amount'
               onChange={handleInput('amount')}
             />
         </div>
         <div className='input-control'>
           <DatePicker 
             id='date'
-            placeholderText='Enter a Date'
+            placeholderText='Enter a date'
             selected={date}
             dateFormat="dd/MM/YYYY"
             onChange={(date) => {
@@ -67,14 +67,14 @@ function ExpenseForm() {
         </div>
         <div className="selects input-control">
           <select required value={category} name="category" id="category" onChange={handleInput('category')}>
-            <option value=""  disabled >Select Option</option>
-            <option value="salary">Salary</option>
-            <option value="freelancing">Freelancing</option>
-            <option value="investments">Investments</option>
-            <option value="stocks">Stocks</option>
-            <option value="bitcoin">Bitcoin</option>
-            <option value="bank">Bank Transfer</option>  
-            <option value="youtube">Youtube</option>  
+            <option value=""  disabled >Select category</option>
+            <option value="education">Education</option>
+            <option value="groceries">Groceries</option>
+            <option value="health">Health</option>
+            <option value="subscriptions">Subscriptions</option>
+            <option value="takeaways">Takeaways</option>
+            <option value="clothing">Clothing</option>  
+            <option value="travelling">Travelling</option>  
             <option value="other">Other</option>  
           </select>
         </div>
@@ -82,7 +82,7 @@ function ExpenseForm() {
                 <textarea 
                   name="description" 
                   value={description} 
-                  placeholder='Add a Reference' 
+                  placeholder='Add a reference' 
                   id="description" 
                   cols="30" 
                   rows="4" 
@@ -92,7 +92,7 @@ function ExpenseForm() {
             </div>
         <div className="submit-btn">
           <Button
-            name={'Add Income'}
+            name={'Add Expense'}
             icon={plus}
             bPad={'.8rem 1.6rem'}
             bRad={'30px'}
@@ -149,4 +149,4 @@ const ExpenseFormStyled = styled.form`
     }
   }
 `;
-export default Form
+export default ExpenseForm

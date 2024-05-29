@@ -2,26 +2,27 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../context/globalContext';
 import { InnerLayout } from '../../styles/Layouts';
-import Form from '../Form/Form';
+import ExpenseForm from '../Expenses/ExpenseForm';
 import IncomeItem from '../IncomeItem/IncomeItem';
 
 function Expenses() {
-    const {addIncome, incomes, getIncomes, deleteIncome, totalIncome} = useGlobalContext()
+    const {addExpense, expenses, getExpenses, deleteExpense, totalExpense} = useGlobalContext()
     useEffect(() => {
-        getIncomes()
+        getExpenses()
     }, [])
     return (
         <ExpensesStyled>
             <InnerLayout>
             <h1>Expenses</h1>
-            <h2 className='total-income'>Total Expense: <span>${totalIncome()}</span></h2>
-                <div className="income-content">
+            <h2 className='total-expense'>Total Expense: <span>${totalExpense()}</span></h2>
+                <div className="expense-content">
                     <div className="form-container">
-                    <Form/>
+                    <ExpenseForm/>
                     </div>
-                    <div className="incomes">
-                        {incomes.map((income) => {
-                            const {_id, title, amount, date, category, description} = income;
+                    <div className="expenses">
+                        {expenses.map((expense) => {
+                            const {_id, title, amount, date, category, description, type} = expense;
+                            console.log(expense)
                             return<IncomeItem
                                 key={_id}
                                 id={_id} 
@@ -29,9 +30,10 @@ function Expenses() {
                                 description={description} 
                                 amount={amount} 
                                 date={date} 
+                                type={type}
                                 category={category} 
                                 indicatorColor="var(--color-green)"
-                                deleteItem={deleteIncome}
+                                deleteItem={deleteExpense}
                             />
                         })}
                     </div>
@@ -44,7 +46,7 @@ function Expenses() {
 const ExpensesStyled = styled.div`
     display: flex;
     overflow: auto;
-    .total-income{
+    .total-expense{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -63,10 +65,10 @@ const ExpensesStyled = styled.div`
         }
     }
 
-    .income-content{
+    .expense-content{
         display: flex;
         gap: 2rem;
-        .incomes{
+        .expenses{
             flex: 1;
         }
     }
