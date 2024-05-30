@@ -15,7 +15,7 @@ export const menuItems = [
     },
     {
         id: 3,
-        title: 'Incomes',
+        title: 'Income',
         icon: trend,
         link: '/dashboard'
     },
