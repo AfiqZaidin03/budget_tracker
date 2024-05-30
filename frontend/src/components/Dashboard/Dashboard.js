@@ -10,6 +10,8 @@ import History from '../History/History';
 
 function Dashboard() {
   const {totalExpense, incomes, expenses, totalIncome, totalBalance, getIncomes, getExpenses } = useGlobalContext()
+  const minIncome = incomes.length > 0 ? Math.min(...incomes.map(item => item.amount)) : 0;
+  const minExpense = expenses.length > 0 ? Math.min(...expenses.map(item => item.amount)) : 0;
 
   useEffect(() => {
       getIncomes()
@@ -46,6 +48,24 @@ function Dashboard() {
               </div>
               <div className="history-con">
                 <History/>
+                <h2 className='salary-title'>Min <span>Income</span>Max</h2>
+                <div className='salary-item'>
+                  <p>
+                    {minIncome}
+                  </p>
+                  <p>
+                    {Math.max(...incomes.map(item => item.amount))}
+                  </p>
+                </div>
+                <h2 className='salary-title'>Min <span>Expense</span>Max</h2>
+                <div className='salary-item'>
+                  <p>
+                    {minExpense}
+                  </p>
+                  <p>
+                    {Math.max(...expenses.map(item => item.amount))}
+                  </p>
+                </div>
               </div>
             </div>
         </InnerLayout>
