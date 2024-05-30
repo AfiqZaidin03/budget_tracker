@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../../context/globalContext';
 import { InnerLayout } from '../../styles/Layouts';
-import { dollar } from '../../utils/icons';
 import Chart from '../Chart/Chart';
 import History from '../History/History';
 
@@ -29,19 +28,19 @@ function Dashboard() {
                     <div className="income">
                         <h2>Total Income</h2>
                         <p>
-                            {dollar} {totalIncome()}
+                          RM {totalIncome()}
                         </p>
                     </div>
                     <div className="expense">
                         <h2>Total Expense</h2>
                         <p>
-                            {dollar} {totalExpense()}
+                          RM {totalExpense()}
                         </p>
                     </div>
                     <div className="balance">
                         <h2>Total Balance</h2>
                         <p>
-                            {dollar} {totalBalance()}
+                          RM {totalBalance()}
                         </p>
                     </div>
                 </div>
@@ -51,19 +50,19 @@ function Dashboard() {
                 <h2 className='salary-title'>Min <span>Income</span>Max</h2>
                 <div className='salary-item'>
                   <p>
-                    {minIncome}
+                    RM {minIncome}
                   </p>
                   <p>
-                    {Math.max(...incomes.map(item => item.amount))}
+                    RM {Math.max(...incomes.map(item => item.amount))}
                   </p>
                 </div>
                 <h2 className='salary-title'>Min <span>Expense</span>Max</h2>
                 <div className='salary-item'>
                   <p>
-                    {minExpense}
+                    RM {minExpense}
                   </p>
                   <p>
-                    {Math.max(...expenses.map(item => item.amount))}
+                    RM {Math.max(...expenses.map(item => item.amount))}
                   </p>
                 </div>
               </div>
