@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/budgetracker/static/css/main.dc3d9745.css",
+    "main.js": "/budgetracker/static/js/main.43af5523.js",
+    "static/media/bg.png": "/budgetracker/static/media/bg.5d6e37827d387d3b46c2.png",
+    "static/media/avatar.png": "/budgetracker/static/media/avatar.4b4e57864f2a8b08d686.png",
+    "index.html": "/budgetracker/index.html",
+    "main.dc3d9745.css.map": "/budgetracker/static/css/main.dc3d9745.css.map",
+    "main.43af5523.js.map": "/budgetracker/static/js/main.43af5523.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dc3d9745.css",
+    "static/js/main.43af5523.js"
+  ]
+}
